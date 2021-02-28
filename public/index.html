@@ -1,84 +1,152 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="style.css" rel="stylesheet"> 
+    <link href="style.css" rel="stylesheet">
     <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
-	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-	<script src='https://kit.fontawesome.com/a076d05399.js'></script>
-    
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+
     <!--  <script src="alert.js"></script> -->
     <title>Alert</title>
     <style>
-		body {
-			font-family:Trebuchet MS;
-			font-size:14px;
-		}
-		
+        body {
+            font-family: Trebuchet MS;
+            font-size: 14px;
+        }
+
         #prontos {
-			
-            display:none;
-		}
-		
-        #rest{
+            display: none;
+        }
+
+        #rest {
             width: 80px;
-			font-size: 18px;
-			border-radius: 1px;
-			border: 0;
-			background: #3CDC8C;
-			color: #FFFFFF;
-			font-weight: 800;
+            font-size: 18px;
+            border-radius: 1px;
+            border: 0;
+            background: #3CDC8C;
+            color: #FFFFFF;
+            font-weight: 800;
             cursor: pointer;
-            display:none;
+            display: none;
         }
-        #qntUsers{
-            display:none;
-            width:60px;
+
+        #qntUsers {
+            display: none;
+            width: 60px;
         }
-       
-	</style>
+
+        #valendo {
+            display: none;
+            margin-left: auto;
+            margin-right: auto;
+            border: 3px solid green;
+            font-size: 25px;
+            text-align: center;
+        }
+
+        img {
+            display: none;
+            width: 65%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .sinos {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            width: 70%;
+
+        }
+
+        footer {
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            height: 50px;
+            width: 100%;
+            background-color: white;
+            color: black;
+            text-align: center;
+        }
+
+        @media(min-width: 600px) {
+            img {
+                display: none;
+                width: 45%;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .sinos {
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+                width: 50%;
+
+            }
+
+            #valendo {
+                display: none;
+                margin-left: auto;
+                margin-right: auto;
+                border: 2px solid green;
+                text-align: center;
+                font-size: 25px;
+            }
+
+        }
+    </style>
 </head>
+
 <body>
-    
-     <div id="rest">
-		<button id="restart" onclick="reiniciar()">Reiniciar</button>
-    </div>  
+
+
     <h1 id="title">Bem-vindo</h1>
-    <p id="toque">Aperte no Valeendo!</p>
+    <div id="valendo">
+        <p id="toque">Aperte no Valeendo!</p>
+    </div>
+    <div id="rest">
+        <button id="restart" onclick="reiniciar()">Reiniciar</button>
+    </div>
     <div id='motd'></div>
     <p id='users'></p>
-    
-    
-    <div id="form" >
+
+
+    <div id="form">
         <label>Nickname</label>
         <input id="new-user" type="text" placeholder="Digite seu nome">
         <button name="button" onclick="sendUser()">Entrar</button>
-    </div >
-    
-    <div id="pronto">
-		<button id="btn" onclick="pronto()">Estou pronto</button>
     </div>
-    
-    <br />
-    
-    <img id="off" src="./img/alertaoff.jpeg" onclick="handleBell()">
-    <img id="on" src="./img/alertaon.jpeg" alt="">
 
+    <div id="pronto">
+        <button id="btn" onclick="pronto()">Estou pronto</button>
+    </div>
+
+    <br />
+    <div class="sinos">
+        <img id="off" src="./img/alertaoff.jpeg" onclick="handleBell()">
+        <img id="on" src="./img/alertaon.jpeg" alt="">
+    </div>
     <p id="prontos">prontos</p>
     <p id="administ"></p>
+    <footer>Com 💖 Jéssica Araújo</footer>
+
     <script src="/socket.io/socket.io.js"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script>
         const socket = io();
-       var newuser = "";
+        var newuser = "";
         var value = 0;
-       
+
         var habilitar = false;
         var intervalo;
         var pront = 0;
         var admin = "";
-        
+
         var prontos = 0;
 
         function addUser(content) {
@@ -90,19 +158,19 @@
 
         function sendUser() {
             document.getElementById("form").style.display = "none";
-           
+
             document.getElementById("title").style.display = "none";
             document.getElementById("pronto").style.display = "block";
-           // user++;
+            // user++;
             newuser = document.getElementById('new-user').value;
-            if(newuser == 'jessy' || newuser == 'marcos' || newuser == 'wjeff'  ) {
+            if (newuser == 'jessy' || newuser == 'marcos' || newuser == 'wjeff') {
                 document.getElementById("rest").style.display = "block";
             }
-            
+
         }
-        
+
         function handleBell() {
-            if(habilitar == true){
+            if (habilitar == true) {
                 document.getElementById("off").style.display = "none";
                 document.getElementById("on").style.display = "block";
 
@@ -110,63 +178,64 @@
 
                 document.getElementById('new-user').value = "";
                 document.getElementById('users').style.display = "block";
-                
+
 
                 habilitar = false;
             }
         }
-         function reiniciar(){
-          socket.emit('restart');
-        } 
-        
+        function reiniciar() {
+            socket.emit('restart');
+        }
+
 
         socket.on('new user', (data) => {
             addUser(data);
         })
-        socket.on('reiniciar',(data)=>{
-           prontos = data;
+        socket.on('reiniciar', (data) => {
+            prontos = data;
             document.getElementById("on").style.display = "none";
-		    document.getElementById('users').innerHTML = "";
-            
+            document.getElementById('users').innerHTML = "";
+
             document.getElementById('users').style.display = "none";
             document.getElementById("off").style.display = "none";
-            
+
             //document.getElementById("crono").style.display = "none";
             document.getElementById("title").style.display = "none";
             prontos = 0;
             document.getElementById("pronto").style.display = "block";
-       }); 
-        socket.on('pronto', (data)=>{
-           var numUsers = value;
-           socket.emit('qntusers', numUsers);
-           document.getElementById("toque").style.display = "block";
+        });
+        socket.on('pronto', (data) => {
+            var numUsers = value;
+            socket.emit('qntusers', numUsers);
+            document.getElementById("valendo").style.display = "block";
             prontos = data;
-           
+
             socket.on('sala', (data) => {
                 const sala = 2;
-                console.log(prontos+ " "+ sala)
-                if(prontos == sala){
-                   habilitar = true;
+                console.log(prontos + " " + sala)
+                if (prontos == sala) {
+                    habilitar = true;
                 }
-           })
-          
-       })
-       
-		
-        
-		function pronto(){
+            })
+
+        })
+
+
+
+        function pronto() {
             document.getElementById("off").disabled = true;
             document.getElementById("off").style.display = "block";
             document.getElementById("pronto").style.display = "none";
-            document.getElementById("toque").style.display = "none";
+            document.getElementById("valendo").style.display = "none";
             //conte++;
             socket.emit('prontos', pront);
-            
-            
+
+
         }
-         
-       
-      </script>
-      
+
+
+    </script>
+
 </body>
+
 </html>

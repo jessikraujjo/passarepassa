@@ -54,13 +54,7 @@ button{
     margin-left: 48%;
     font-size: 18px;
 }
-#toque{
-    display: flex;
-    display: none;
-    margin-left: 38%;
-    font-weight: 800;
-    font-size: 28px;
-}
+
 #pronto {
     width: 90px;
     
@@ -89,12 +83,7 @@ button{
     display:none;
 
 }
-img{
-    width: 50%;
-    margin-left: 25%;
-    display: none;
-    cursor: pointer;
-}
+
 @media (max-width: 798px) {
     #form{
         width: 89%;
@@ -104,13 +93,7 @@ img{
     #title {
         margin-left: 31%;
     }
-    #toque{
-        display: flex;
-        display: none;
-        margin-left: 26%;
-        font-weight: 800;
-        font-size: 28px;
-    }
+   
     #users{
         margin-left: 46%;
         font-size: 18px;
@@ -119,11 +102,5 @@ img{
         padding-top: 50px;
         margin-left: 30%;
     }
-    #crono{
-        margin-top: 50px;
-
-        margin-left: 23%;
-        width:200px;
-
-    }
+    
 }
