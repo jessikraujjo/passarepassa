@@ -1,0 +1,129 @@
+body{
+    margin: 0;
+}
+
+#title {
+    margin-left: 45%;
+}
+.fa { 
+    margin-left: 45%;
+    color: black;
+
+}
+#form{
+    margin-left: 25%;
+    background: grey;
+    height: 110px;
+    width: 50%;
+    text-align: center;
+    padding-top: 20px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 40px;
+    border-radius: 4px;
+
+}
+label{
+    padding-bottom: 5px;
+    color: #fff;
+}
+#form input{
+    width: 80%;
+    height: 44px;
+    border-radius: 20px;
+    border: 0;
+    font-weight: 800;
+    text-align: center;
+    margin-bottom: 14px;
+}
+button{
+    width: 80%;
+    height: 44px;
+    border: 0;
+    cursor: pointer;
+    background: #3CDC8C;
+    border-radius: 20px;
+    color: #FFFFFF;
+    font-weight: 800;
+}
+
+#users{
+    margin-left: 48%;
+    font-size: 18px;
+}
+#toque{
+    display: flex;
+    display: none;
+    margin-left: 38%;
+    font-weight: 800;
+    font-size: 28px;
+}
+#pronto {
+    width: 90px;
+    
+    margin: 0 auto;
+    align-items: center;
+    display:none;
+    padding: 10px;
+}
+#btn{
+    width: 120px;
+    font-size: 18px;
+    height: 60px;
+    border-radius: 11px;
+    border: 0;
+    background: #3CDC8C;
+    color: #FFFFFF;
+    font-weight: 800;
+    cursor: pointer;
+}
+#crono{
+    display:flex;
+    margin-left: 50%;
+    width:190px;
+    height: 35px;
+    font-size:30px;
+    display:none;
+
+}
+img{
+    width: 50%;
+    margin-left: 25%;
+    display: none;
+    cursor: pointer;
+}
+@media (max-width: 798px) {
+    #form{
+        width: 89%;
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+    #title {
+        margin-left: 31%;
+    }
+    #toque{
+        display: flex;
+        display: none;
+        margin-left: 26%;
+        font-weight: 800;
+        font-size: 28px;
+    }
+    #users{
+        margin-left: 46%;
+        font-size: 18px;
+    }
+    #pronto{
+        padding-top: 50px;
+        margin-left: 30%;
+    }
+    #crono{
+        margin-top: 50px;
+
+        margin-left: 23%;
+        width:200px;
+
+    }
+}

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewpor t" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+	<script src="./js/comecar.js"></script>
+	<script src='https://kit.fontawesome.com/a076d05399.js'></script>
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<title>Document</title>
+	<style>
+		.codigo {
+			width:60px;
+			border:1px dashed;
+			background-color:#E6E6FA;
+            
+           
+        }
+       
+		.pronto {
+			width: 90px;
+			
+			margin: 0 auto;
+			align-items: center;
+		}
+		#btn{
+			width: 120px;
+			font-size: 18px;
+			height: 60px;
+			border-radius: 11px;
+			border: 0;
+			background: #3CDC8C;
+			color: #FFFFFF;
+			font-weight: 800;
+			cursor: pointer;
+
+		}
+	</style>
+</head>
+<BODY onload=startCountdown()>
+	<SCRIPT language=JavaScript>
+	 
+	var temp = new Number();
+	
+	var temp = 6;
+	 
+	function startCountdown(){
+		   if((temp - 1) >= 0){
+				   temp = temp - 1;
+				   numberCountdown.innerText = '00:00:0' + temp ;
+				   setTimeout('startCountdown()',1000);
+		   }
+	}
+	</SCRIPT>
+	
+	<DIV id=numberCountdown align=center></DIV>
+</body>
+</html>
